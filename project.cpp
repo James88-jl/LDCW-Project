@@ -134,11 +134,11 @@ int main() {
 		case 7:
 			cout << "Location: Pahang\n";
 			if (surgeryType == 1)
-				cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Cardiac Surgery\n";
+				cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Cardiac Surgery\n";
 			else if (surgeryType == 2)
 				cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Neurosurgery\n";
 			else if (surgeryType == 3)
-				cout << "Hospital: KPJ Kuantan Specialist Hospital\nSpecialty: Orthopedic Surgery\n";
+				cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Orthopedic Surgery\n";
 			else if (surgeryType == 4)
 				cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: General Surgery\n";
 			else
@@ -148,11 +148,11 @@ int main() {
 		case 8:
 			cout << "Location: Kedah\n";
 			if (surgeryType == 1)
-				cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Cardiac Surgery\n";
+				cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Cardiac Surgery\n";
 			else if (surgeryType == 2)
 				cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Neurosurgery\n";
 			else if (surgeryType == 3)
-				cout << "Hospital: KPJ Alor Setar Specialist Hospital\nSpecialty: Orthopedic Surgery\n";
+				cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Orthopedic Surgery\n";
 			else if (surgeryType == 4)
 				cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: General Surgery\n";
 			else
@@ -176,11 +176,11 @@ int main() {
 		case 10:
 			cout << "Location: Terengganu\n";
 			if (surgeryType == 1)
-				cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Cardiac Surgery\n";
+				cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Cardiac Surgery\n";
 			else if (surgeryType == 2)
 				cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Neurosurgery\n";
 			else if (surgeryType == 3)
-				cout << "Hospital: KPJ Putra Specialist Hospital\nSpecialty: Orthopedic Surgery\n";
+				cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Orthopedic Surgery\n";
 			else if (surgeryType == 4)
 				cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: General Surgery\n";
 			else
