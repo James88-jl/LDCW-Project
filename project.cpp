@@ -1,14 +1,29 @@
+/*
+ * Program: Hospital Finder - Surgery Specialist Locator
+ * Purpose: Helps users find suitable hospitals for major surgeries based on their location
+ * Technology Context: Healthcare Digital Innovation System (Connected to Part 1 analysis)
+ * Features: 
+ *   - Covers all 13 Malaysian states/regions
+ *   - Recommends hospitals by surgery specialization
+ *   - Uses real Malaysian hospital names
+ * Date: 2026
+ */
+
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 int main() {
+	// Variable declarations
 	int location, surgeryType;
 
+	// Display program header
 	cout << "=== Hospital Finder - Surgery Specialist Locator ===\n";
 	cout << "=== Malaysia ===\n";
-	cout << "\nSelect your location:\n";
+	
+	// Section 1: Get user's location (state/region)
+	cout << "\nSelect your state/region:\n";
 	cout << "1. Kuala Lumpur & Selangor\n";
 	cout << "2. Penang\n";
 	cout << "3. Johor\n";
@@ -25,11 +40,13 @@ int main() {
 	cout << "Enter your choice: ";
 	cin >> location;
 
+	// Validate location input
 	if (location < 1 || location > 13) {
 		cout << "Invalid location. Please choose 1-13.\n";
 		return 0;
 	}
 
+	// Section 2: Get surgery type needed
 	cout << "\nSelect surgery type needed:\n";
 	cout << "1. Cardiac Surgery (Heart)\n";
 	cout << "2. Neurosurgery (Brain & Spine)\n";
@@ -39,14 +56,18 @@ int main() {
 	cout << "Enter your choice: ";
 	cin >> surgeryType;
 
+	// Validate surgery type input
 	if (surgeryType < 1 || surgeryType > 5) {
 		cout << "Invalid surgery type. Please choose 1-5.\n";
 		return 0;
 	}
 
+	// Section 3: Display recommended hospital based on location and surgery type
 	cout << "\n=== RECOMMENDED HOSPITAL ===\n";
 
+	// Process recommendation using switch-case for different locations
 	switch (location) {
+		// Case 1: Kuala Lumpur & Selangor Region
 		case 1:
 			cout << "Location: Kuala Lumpur & Selangor\n";
 			if (surgeryType == 1)
@@ -61,6 +82,8 @@ int main() {
 				cout << "Hospital: Hospital Sungai Buloh\nSpecialty: 24/7 Emergency & Trauma Surgery\n";
 			break;
 
+		// Case 2: Penang Region
+		// Case 2: Penang Region
 		case 2:
 			cout << "Location: Penang\n";
 			if (surgeryType == 1)
@@ -75,6 +98,8 @@ int main() {
 				cout << "Hospital: Island Hospital Penang\nSpecialty: Emergency Surgery\n";
 			break;
 
+		// Case 3: Johor Region
+		// Case 3: Johor Region
 		case 3:
 			cout << "Location: Johor\n";
 			if (surgeryType == 1)
@@ -89,6 +114,8 @@ int main() {
 				cout << "Hospital: Pantai Hospital Johor\nSpecialty: 24/7 Emergency Care\n";
 			break;
 
+		// Case 4: Perak Region
+		// Case 4: Perak Region
 		case 4:
 			cout << "Location: Perak\n";
 			if (surgeryType == 1)
@@ -103,6 +130,7 @@ int main() {
 				cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: Emergency & Trauma\n";
 			break;
 
+		// Case 5: Melaka Region
 		case 5:
 			cout << "Location: Melaka\n";
 			if (surgeryType == 1)
@@ -117,6 +145,7 @@ int main() {
 				cout << "Hospital: Mahkota Medical Centre\nSpecialty: Emergency Care\n";
 			break;
 
+		// Case 6: Negeri Sembilan Region
 		case 6:
 			cout << "Location: Negeri Sembilan\n";
 			if (surgeryType == 1)
@@ -131,6 +160,8 @@ int main() {
 				cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Emergency Surgery\n";
 			break;
 
+		// Case 7: Pahang Region
+		// Case 7: Pahang Region
 		case 7:
 			cout << "Location: Pahang\n";
 			if (surgeryType == 1)
@@ -145,6 +176,7 @@ int main() {
 				cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Emergency & Trauma\n";
 			break;
 
+		// Case 8: Kedah Region
 		case 8:
 			cout << "Location: Kedah\n";
 			if (surgeryType == 1)
@@ -159,6 +191,8 @@ int main() {
 				cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Emergency Surgery\n";
 			break;
 
+		// Case 9: Kelantan Region
+		// Case 9: Kelantan Region
 		case 9:
 			cout << "Location: Kelantan\n";
 			if (surgeryType == 1)
@@ -173,6 +207,7 @@ int main() {
 				cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Emergency & Trauma\n";
 			break;
 
+		// Case 10: Terengganu Region
 		case 10:
 			cout << "Location: Terengganu\n";
 			if (surgeryType == 1)
@@ -187,6 +222,7 @@ int main() {
 				cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Emergency Surgery\n";
 			break;
 
+		// Case 11: Perlis Region
 		case 11:
 			cout << "Location: Perlis\n";
 			if (surgeryType == 1)
@@ -201,6 +237,7 @@ int main() {
 				cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Emergency Surgery\n";
 			break;
 
+		// Case 12: Sabah Region
 		case 12:
 			cout << "Location: Sabah\n";
 			if (surgeryType == 1)
@@ -215,6 +252,8 @@ int main() {
 				cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Emergency & Trauma\n";
 			break;
 
+		// Case 13: Sarawak Region
+		// Case 13: Sarawak Region
 		case 13:
 			cout << "Location: Sarawak\n";
 			if (surgeryType == 1)
@@ -230,5 +269,6 @@ int main() {
 			break;
 	}
 
+	// Program end
 	return 0;
 }
