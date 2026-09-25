@@ -4,28 +4,36 @@
 using namespace std;
 
 int main() {
-	int genre;
+	int location;
 
-	cout << "=== Simple Netflix Movie Finder ===\n";
-	cout << "Choose a genre:\n";
-	cout << "1. Action\n";
-	cout << "2. Comedy\n";
-	cout << "3. Science Fiction\n";
+	cout << "=== Hospital Finder - Surgery Specialist Locator ===\n";
+	cout << "Select your location:\n";
+	cout << "1. North Region\n";
+	cout << "2. South Region\n";
+	cout << "3. East Region\n";
+	cout << "4. West Region\n";
+	cout << "5. Central Region\n";
 	cout << "Enter your choice: ";
-	cin >> genre;
+	cin >> location;
 
-	switch (genre) {
+	switch (location) {
 		case 1:
-			cout << "Recommended movie: Extraction\n";
+			cout << "Recommended hospital: Northern Medical Center\n";
 			break;
 		case 2:
-			cout << "Recommended movie: The Intern\n";
+			cout << "Recommended hospital: Southern General Hospital\n";
 			break;
 		case 3:
-			cout << "Recommended movie: The Adam Project\n";
+			cout << "Recommended hospital: Eastern Specialist Hospital\n";
+			break;
+		case 4:
+			cout << "Recommended hospital: Western Regional Hospital\n";
+			break;
+		case 5:
+			cout << "Recommended hospital: Central City Hospital\n";
 			break;
 		default:
-			cout << "Invalid choice. Please choose 1, 2, or 3.\n";
+			cout << "Invalid choice. Please choose 1-5.\n";
 	}
 
 	return 0;
