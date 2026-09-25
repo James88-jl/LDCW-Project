@@ -83,7 +83,6 @@ int main() {
 			break;
 
 		// Case 2: Penang Region
-		// Case 2: Penang Region
 		case 2:
 			cout << "Location: Penang\n";
 			if (surgeryType == 1)
@@ -99,7 +98,6 @@ int main() {
 			break;
 
 		// Case 3: Johor Region
-		// Case 3: Johor Region
 		case 3:
 			cout << "Location: Johor\n";
 			if (surgeryType == 1)
@@ -114,7 +112,6 @@ int main() {
 				cout << "Hospital: Pantai Hospital Johor\nSpecialty: 24/7 Emergency Care\n";
 			break;
 
-		// Case 4: Perak Region
 		// Case 4: Perak Region
 		case 4:
 			cout << "Location: Perak\n";
@@ -161,7 +158,6 @@ int main() {
 			break;
 
 		// Case 7: Pahang Region
-		// Case 7: Pahang Region
 		case 7:
 			cout << "Location: Pahang\n";
 			if (surgeryType == 1)
@@ -191,7 +187,6 @@ int main() {
 				cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Emergency Surgery\n";
 			break;
 
-		// Case 9: Kelantan Region
 		// Case 9: Kelantan Region
 		case 9:
 			cout << "Location: Kelantan\n";
@@ -252,7 +247,6 @@ int main() {
 				cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Emergency & Trauma\n";
 			break;
 
-		// Case 13: Sarawak Region
 		// Case 13: Sarawak Region
 		case 13:
 			cout << "Location: Sarawak\n";
