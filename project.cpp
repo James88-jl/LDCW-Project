@@ -17,73 +17,76 @@ using namespace std;
 int main() {
 	// Variable declarations
 	int location, surgeryType;
-
-	// Display program header
-	cout << "=== Hospital Finder - Surgery Specialist Locator ===\n";
-	cout << "=== Malaysia ===\n";
+	char searchAgain;
 	
-	// Section 1: Get user's location (state/region)
-	cout << "\nSelect your state/region:\n";
-	cout << "1. Kuala Lumpur & Selangor\n";
-	cout << "2. Penang\n";
-	cout << "3. Johor\n";
-	cout << "4. Perak\n";
-	cout << "5. Melaka\n";
-	cout << "6. Negeri Sembilan\n";
-	cout << "7. Pahang\n";
-	cout << "8. Kedah\n";
-	cout << "9. Kelantan\n";
-	cout << "10. Terengganu\n";
-	cout << "11. Perlis\n";
-	cout << "12. Sabah\n";
-	cout << "13. Sarawak\n";
-	cout << "Enter your choice: ";
-	cin >> location;
+	// Main program loop - allows multiple searches
+	do {
+		// Display program header
+		cout << "=== Hospital Finder - Surgery Specialist Locator ===\n";
+		cout << "=== Malaysia ===\n";
+		
+		// Section 1: Get user's location (state/region)
+		cout << "\nSelect your state/region:\n";
+		cout << "1. Kuala Lumpur & Selangor\n";
+		cout << "2. Penang\n";
+		cout << "3. Johor\n";
+		cout << "4. Perak\n";
+		cout << "5. Melaka\n";
+		cout << "6. Negeri Sembilan\n";
+		cout << "7. Pahang\n";
+		cout << "8. Kedah\n";
+		cout << "9. Kelantan\n";
+		cout << "10. Terengganu\n";
+		cout << "11. Perlis\n";
+		cout << "12. Sabah\n";
+		cout << "13. Sarawak\n";
+		cout << "Enter your choice: ";
+		cin >> location;
 
-	// Validate location input
-	if (location < 1 || location > 13) {
-		cout << "Invalid location. Please choose 1-13.\n";
-		return 0;
-	}
+		// Validate location input
+		if (location < 1 || location > 13) {
+			cout << "Invalid location. Please choose 1-13.\n";
+			continue;
+		}
 
-	// Section 2: Get surgery type needed
-	cout << "\nSelect surgery type needed:\n";
-	cout << "1. Cardiac Surgery (Heart)\n";
-	cout << "2. Neurosurgery (Brain & Spine)\n";
-	cout << "3. Orthopedic Surgery (Bones & Joints)\n";
-	cout << "4. General Surgery\n";
-	cout << "5. Emergency Surgery\n";
-	cout << "Enter your choice: ";
-	cin >> surgeryType;
+		// Section 2: Get surgery type needed
+		cout << "\nSelect surgery type needed:\n";
+		cout << "1. Cardiac Surgery (Heart)\n";
+		cout << "2. Neurosurgery (Brain & Spine)\n";
+		cout << "3. Orthopedic Surgery (Bones & Joints)\n";
+		cout << "4. General Surgery\n";
+		cout << "5. Emergency Surgery\n";
+		cout << "Enter your choice: ";
+		cin >> surgeryType;
 
-	// Validate surgery type input
-	if (surgeryType < 1 || surgeryType > 5) {
-		cout << "Invalid surgery type. Please choose 1-5.\n";
-		return 0;
-	}
+		// Validate surgery type input
+		if (surgeryType < 1 || surgeryType > 5) {
+			cout << "Invalid surgery type. Please choose 1-5.\n";
+			continue;
+		}
 
-	// Section 3: Display recommended hospital based on location and surgery type
-	cout << "\n=== RECOMMENDED HOSPITAL ===\n";
+		// Section 3: Display recommended hospital based on location and surgery type
+		cout << "\n=== RECOMMENDED HOSPITAL ===\n";
 
-	// Process recommendation using switch-case for different locations
-	switch (location) {
-		// Case 1: Kuala Lumpur & Selangor Region
-		case 1:
-			cout << "Location: Kuala Lumpur & Selangor\n";
-			if (surgeryType == 1)
-				cout << "Hospital: Institut Jantung Negara (IJN)\nSpecialty: Advanced Cardiac Surgery\n";
-			else if (surgeryType == 2)
-				cout << "Hospital: Hospital Kuala Lumpur (HKL)\nSpecialty: Neurosurgery & Brain Surgery\n";
-			else if (surgeryType == 3)
-				cout << "Hospital: University of Malaya Medical Centre (UMMC)\nSpecialty: Orthopedic & Joint Surgery\n";
-			else if (surgeryType == 4)
-				cout << "Hospital: Hospital Selayang\nSpecialty: General Surgery\n";
-			else
-				cout << "Hospital: Hospital Sungai Buloh\nSpecialty: 24/7 Emergency & Trauma Surgery\n";
-			break;
+		// Process recommendation using switch-case for different locations
+		switch (location) {
+			// Case 1: Kuala Lumpur & Selangor Region
+			case 1:
+				cout << "Location: Kuala Lumpur & Selangor\n";
+				if (surgeryType == 1)
+					cout << "Hospital: Institut Jantung Negara (IJN)\nSpecialty: Advanced Cardiac Surgery\n";
+				else if (surgeryType == 2)
+					cout << "Hospital: Hospital Kuala Lumpur (HKL)\nSpecialty: Neurosurgery & Brain Surgery\n";
+				else if (surgeryType == 3)
+					cout << "Hospital: University of Malaya Medical Centre (UMMC)\nSpecialty: Orthopedic & Joint Surgery\n";
+				else if (surgeryType == 4)
+					cout << "Hospital: Hospital Selayang\nSpecialty: General Surgery\n";
+				else
+					cout << "Hospital: Hospital Sungai Buloh\nSpecialty: 24/7 Emergency & Trauma Surgery\n";
+				break;
 
-		// Case 2: Penang Region
-		case 2:
+			// Case 2: Penang Region
+			case 2:
 			cout << "Location: Penang\n";
 			if (surgeryType == 1)
 				cout << "Hospital: Penang Adventist Hospital\nSpecialty: Cardiac Surgery\n";
@@ -261,7 +264,19 @@ int main() {
 			else
 				cout << "Hospital: KPJ Kuching Specialist Hospital\nSpecialty: Trauma & Emergency Surgery\n";
 			break;
-	}
+		}
+
+		// Ask user if they want to search again
+		cout << "\n========================================\n";
+		cout << "Would you like to search for another hospital? (Y/N): ";
+		cin >> searchAgain;
+		cout << "\n";
+		
+	} while (searchAgain == 'Y' || searchAgain == 'y');
+	
+	// Thank you message
+	cout << "Thank you for using Hospital Finder!\n";
+	cout << "Stay healthy and take care!\n";
 
 	// Program end
 	return 0;
