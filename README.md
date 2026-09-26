@@ -20,6 +20,7 @@ A C++ console application that helps users find suitable hospitals for major sur
   - Emergency Surgery
 - **65 Hospital Recommendations:** Real Malaysian hospitals
 - **Complete Contact Information:** Phone numbers for all hospitals
+- **Location Details:** Area/street information to help locate hospitals
 - **User-Friendly Interface:** Menu-driven selection system
 - **Input Validation:** Robust error handling
 - **Search Again Feature:** Multiple searches without restarting
@@ -50,6 +51,7 @@ Hospital Finder
 ├── Hospital Recommendation
 │   ├── Hospital Name
 │   ├── Specialty
+│   ├── Area/Location
 │   └── Contact Number
 └── Search Again Option
 ```
@@ -99,6 +101,7 @@ Enter your choice: 1
 Location: Kuala Lumpur & Selangor
 Hospital: Institut Jantung Negara (IJN)
 Specialty: Advanced Cardiac Surgery
+Area: Jalan Tun Razak, KL City Centre
 Contact: +603-2617 8200
 
 Would you like to search for another hospital? (Y/N): N
@@ -149,6 +152,7 @@ git log --oneline --graph
 5. Addition of comprehensive documentation
 6. Implementation of search again loop
 7. Integration of complete contact information
+8. Addition of area/location descriptions for all hospitals
 
 ## 📦 Repository Structure
 
