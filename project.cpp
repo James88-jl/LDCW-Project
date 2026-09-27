@@ -49,7 +49,7 @@ int main() {
 			cout << "Invalid location. Please choose 1-13.\n";
 			continue;
 		}
-
+		
 		// Section 2: Get surgery type needed
 		cout << "\nSelect surgery type needed:\n";
 		cout << "1. Cardiac Surgery (Heart)\n";
@@ -66,204 +66,570 @@ int main() {
 			continue;
 		}
 
-		// Section 3: Display recommended hospital based on location and surgery type
-		cout << "\n=== RECOMMENDED HOSPITAL ===\n";
+		// Section 3: Display recommended hospitals based on location and surgery type
+		cout << "\n=== RECOMMENDED HOSPITALS ===\n";
 
 		// Process recommendation using switch-case for different locations
 		switch (location) {
 			// Case 1: Kuala Lumpur & Selangor Region
 			case 1:
 				cout << "Location: Kuala Lumpur & Selangor\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Institut Jantung Negara (IJN)\nSpecialty: Advanced Cardiac Surgery\nArea: Jalan Tun Razak, KL City Centre\nContact: +603-2617 8200\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Kuala Lumpur (HKL)\nSpecialty: Neurosurgery & Brain Surgery\nArea: Jalan Pahang, Central KL\nContact: +603-2615 5555\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: University of Malaya Medical Centre (UMMC)\nSpecialty: Orthopedic & Joint Surgery\nArea: Lembah Pantai, Near Universiti Malaya\nContact: +603-7949 2052\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Selayang\nSpecialty: General Surgery\nArea: Selayang, North of KL\nContact: +603-6126 3333\n";
-				else
-					cout << "Hospital: Hospital Sungai Buloh\nSpecialty: 24/7 Emergency & Trauma Surgery\nArea: Sungai Buloh, Near KLIA Highway\nContact: +603-6145 5555\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Institut Jantung Negara (IJN)\nSpecialty: Advanced Cardiac Surgery\nArea: Jalan Tun Razak, KL City Centre\nContact: +603-2617 8200\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Gleneagles Hospital Kuala Lumpur\nSpecialty: Cardiac & Heart Surgery\nArea: Jalan Ampang, KLCC Area\nContact: +603-4141 3000\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Prince Court Medical Centre\nSpecialty: Cardiovascular Surgery\nArea: Jalan Kia Peng, Near KLCC\nContact: +603-2160 0000\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Kuala Lumpur (HKL)\nSpecialty: Neurosurgery & Brain Surgery\nArea: Jalan Pahang, Central KL\nContact: +603-2615 5555\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: University of Malaya Medical Centre (UMMC)\nSpecialty: Neurosurgery & Spine Surgery\nArea: Lembah Pantai, Near Universiti Malaya\nContact: +603-7949 2052\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Gleneagles Hospital Kuala Lumpur\nSpecialty: Brain & Spine Surgery\nArea: Jalan Ampang, KLCC Area\nContact: +603-4141 3000\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: University of Malaya Medical Centre (UMMC)\nSpecialty: Orthopedic & Joint Surgery\nArea: Lembah Pantai, Near Universiti Malaya\nContact: +603-7949 2052\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Sunway Medical Centre\nSpecialty: Orthopedic & Sports Surgery\nArea: Bandar Sunway, Petaling Jaya\nContact: +603-7491 9191\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Prince Court Medical Centre\nSpecialty: Joint Replacement Surgery\nArea: Jalan Kia Peng, Near KLCC\nContact: +603-2160 0000\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Selayang\nSpecialty: General Surgery\nArea: Selayang, North of KL\nContact: +603-6126 3333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Kuala Lumpur (HKL)\nSpecialty: General Surgery\nArea: Jalan Pahang, Central KL\nContact: +603-2615 5555\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Pantai Hospital Kuala Lumpur\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Bukit Pantai, Bangsar\nContact: +603-2296 0888\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sungai Buloh\nSpecialty: 24/7 Emergency & Trauma Surgery\nArea: Sungai Buloh, Near KLIA Highway\nContact: +603-6145 5555\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Kuala Lumpur (HKL)\nSpecialty: Emergency & Trauma Centre\nArea: Jalan Pahang, Central KL\nContact: +603-2615 5555\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Hospital Selayang\nSpecialty: 24/7 Emergency Surgery\nArea: Selayang, North of KL\nContact: +603-6126 3333\n";
+				}
 				break;
 
 			// Case 2: Penang Region
 			case 2:
 				cout << "Location: Penang\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Penang Adventist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Burma, Georgetown\nContact: +604-222 7200\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Pulau Pinang\nSpecialty: Neurosurgery\nArea: Jalan Residensi, Georgetown\nContact: +604-222 5333\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Loh Guan Lye Specialists Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Logan, Georgetown\nContact: +604-238 8888\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Gleneagles Hospital Penang\nSpecialty: General Surgery\nArea: Jalan Pangkor, Penang Island\nContact: +604-222 9111\n";
-				else
-					cout << "Hospital: Island Hospital Penang\nSpecialty: Emergency Surgery\nArea: Jalan Macalister, Central Georgetown\nContact: +604-228 8222\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Penang Adventist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Burma, Georgetown\nContact: +604-222 7200\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Island Hospital Penang\nSpecialty: Heart & Vascular Surgery\nArea: Jalan Macalister, Central Georgetown\nContact: +604-228 8222\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Gleneagles Hospital Penang\nSpecialty: Cardiovascular Surgery\nArea: Jalan Pangkor, Penang Island\nContact: +604-222 9111\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Pulau Pinang\nSpecialty: Neurosurgery\nArea: Jalan Residensi, Georgetown\nContact: +604-222 5333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Gleneagles Hospital Penang\nSpecialty: Brain & Spine Surgery\nArea: Jalan Pangkor, Penang Island\nContact: +604-222 9111\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Island Hospital Penang\nSpecialty: Neurosurgery & Spine Centre\nArea: Jalan Macalister, Central Georgetown\nContact: +604-228 8222\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Loh Guan Lye Specialists Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Logan, Georgetown\nContact: +604-238 8888\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Island Hospital Penang\nSpecialty: Orthopedic & Joint Replacement\nArea: Jalan Macalister, Central Georgetown\nContact: +604-228 8222\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Gleneagles Hospital Penang\nSpecialty: Orthopedic & Sports Surgery\nArea: Jalan Pangkor, Penang Island\nContact: +604-222 9111\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Gleneagles Hospital Penang\nSpecialty: General Surgery\nArea: Jalan Pangkor, Penang Island\nContact: +604-222 9111\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Loh Guan Lye Specialists Centre\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Logan, Georgetown\nContact: +604-238 8888\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Hospital Pulau Pinang\nSpecialty: General Surgery\nArea: Jalan Residensi, Georgetown\nContact: +604-222 5333\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Island Hospital Penang\nSpecialty: Emergency Surgery\nArea: Jalan Macalister, Central Georgetown\nContact: +604-228 8222\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Pulau Pinang\nSpecialty: 24/7 Emergency & Trauma\nArea: Jalan Residensi, Georgetown\nContact: +604-222 5333\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Gleneagles Hospital Penang\nSpecialty: Emergency Care\nArea: Jalan Pangkor, Penang Island\nContact: +604-222 9111\n";
+				}
 				break;
 
 			// Case 3: Johor Region
 			case 3:
 				cout << "Location: Johor\n";
-				if (surgeryType == 1)
-					cout << "Hospital: KPJ Johor Specialist Hospital\nSpecialty: Heart Surgery\nArea: Jalan Abdul Samad, Johor Bahru\nContact: +607-225 3000\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Sultanah Aminah (HSA)\nSpecialty: Brain & Spine Surgery\nArea: Jalan Abu Bakar, JB City Centre\nContact: +607-225 7000\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Gleneagles Hospital Medini Johor\nSpecialty: Orthopedic Surgery\nArea: Medini Iskandar, Near Legoland\nContact: +607-560 1000\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Sultanah Aminah\nSpecialty: General Surgery\nArea: Jalan Abu Bakar, JB City Centre\nContact: +607-225 7000\n";
-				else
-					cout << "Hospital: Pantai Hospital Johor\nSpecialty: 24/7 Emergency Care\nArea: Batu Pahat Town\nContact: +607-433 8811\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: KPJ Johor Specialist Hospital\nSpecialty: Heart Surgery\nArea: Jalan Abdul Samad, Johor Bahru\nContact: +607-225 3000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Gleneagles Hospital Medini Johor\nSpecialty: Cardiac & Vascular Surgery\nArea: Medini Iskandar, Near Legoland\nContact: +607-560 1000\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Hospital Sultanah Aminah (HSA)\nSpecialty: Cardiothoracic Surgery\nArea: Jalan Abu Bakar, JB City Centre\nContact: +607-225 7000\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sultanah Aminah (HSA)\nSpecialty: Brain & Spine Surgery\nArea: Jalan Abu Bakar, JB City Centre\nContact: +607-225 7000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Gleneagles Hospital Medini Johor\nSpecialty: Neurosurgery & Spine Centre\nArea: Medini Iskandar, Near Legoland\nContact: +607-560 1000\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: KPJ Johor Specialist Hospital\nSpecialty: Neurosurgery\nArea: Jalan Abdul Samad, Johor Bahru\nContact: +607-225 3000\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Gleneagles Hospital Medini Johor\nSpecialty: Orthopedic Surgery\nArea: Medini Iskandar, Near Legoland\nContact: +607-560 1000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: KPJ Johor Specialist Hospital\nSpecialty: Orthopedic & Joint Replacement\nArea: Jalan Abdul Samad, Johor Bahru\nContact: +607-225 3000\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Pantai Hospital Johor\nSpecialty: Orthopedic Surgery\nArea: Batu Pahat Town\nContact: +607-433 8811\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sultanah Aminah\nSpecialty: General Surgery\nArea: Jalan Abu Bakar, JB City Centre\nContact: +607-225 7000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: KPJ Johor Specialist Hospital\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Abdul Samad, Johor Bahru\nContact: +607-225 3000\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Gleneagles Hospital Medini Johor\nSpecialty: General Surgery\nArea: Medini Iskandar, Near Legoland\nContact: +607-560 1000\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Pantai Hospital Johor\nSpecialty: 24/7 Emergency Care\nArea: Batu Pahat Town\nContact: +607-433 8811\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Sultanah Aminah (HSA)\nSpecialty: Emergency & Trauma Centre\nArea: Jalan Abu Bakar, JB City Centre\nContact: +607-225 7000\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Gleneagles Hospital Medini Johor\nSpecialty: Emergency Surgery\nArea: Medini Iskandar, Near Legoland\nContact: +607-560 1000\n";
+				}
 				break;
 
 			// Case 4: Perak Region
 			case 4:
 				cout << "Location: Perak\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Pantai Hospital Ipoh\nSpecialty: Cardiovascular Surgery\nArea: Jalan Tambun, Ipoh Town\nContact: +605-540 5555\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Ipoh City Centre\nContact: +605-208 5000\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Pantai Hospital Ipoh\nSpecialty: Orthopedic Surgery\nArea: Jalan Tambun, Ipoh Town\nContact: +605-540 5555\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: General Surgery\nArea: Jalan Hospital, Ipoh City Centre\nContact: +605-208 5000\n";
-				else
-					cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: Emergency & Trauma\nArea: Jalan Hospital, Ipoh City Centre\nContact: +605-208 5000\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Pantai Hospital Ipoh\nSpecialty: Cardiovascular Surgery\nArea: Jalan Tambun, Ipoh Town\nContact: +605-540 5555\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: Cardiac Surgery\nArea: Jalan Hospital, Ipoh City Centre\nContact: +605-208 5000\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Ipoh City Centre\nContact: +605-208 5000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Pantai Hospital Ipoh\nSpecialty: Neurosurgery & Spine Surgery\nArea: Jalan Tambun, Ipoh Town\nContact: +605-540 5555\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Pantai Hospital Ipoh\nSpecialty: Orthopedic Surgery\nArea: Jalan Tambun, Ipoh Town\nContact: +605-540 5555\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Hospital, Ipoh City Centre\nContact: +605-208 5000\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: General Surgery\nArea: Jalan Hospital, Ipoh City Centre\nContact: +605-208 5000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Pantai Hospital Ipoh\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Tambun, Ipoh Town\nContact: +605-540 5555\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Raja Permaisuri Bainun\nSpecialty: Emergency & Trauma\nArea: Jalan Hospital, Ipoh City Centre\nContact: +605-208 5000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Pantai Hospital Ipoh\nSpecialty: 24/7 Emergency Care\nArea: Jalan Tambun, Ipoh Town\nContact: +605-540 5555\n";
+				}
 				break;
 
 			// Case 5: Melaka Region
 			case 5:
 				cout << "Location: Melaka\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Cardiac Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Melaka\nSpecialty: Neurosurgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Melaka\nSpecialty: General Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n";
-				else
-					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Emergency Care\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Cardiac Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: Neurosurgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: General Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: General & Minimally Invasive Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Emergency Care\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: 24/7 Emergency & Trauma\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n";
+				}
 				break;
 
 			// Case 6: Negeri Sembilan Region
 			case 6:
 				cout << "Location: Negeri Sembilan\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Cardiac Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Tuanku Ja'afar Seremban\nSpecialty: Neurosurgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: General Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n";
-				else
-					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Emergency Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Cardiac Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Cardiovascular Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Cardiac Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar Seremban\nSpecialty: Neurosurgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Brain & Spine Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Neurosurgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Orthopedic & Joint Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Orthopedic Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: General Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: General Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Emergency Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: 24/7 Emergency Care\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Emergency Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n";
+				}
 				break;
 
 			// Case 7: Pahang Region
 			case 7:
 				cout << "Location: Pahang\n";
-				if (surgeryType == 1)
-					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Neurosurgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: General Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n";
-				else
-					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Emergency & Trauma\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Neurosurgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: General Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Emergency & Trauma\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: 24/7 Emergency Care\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n";
+				}
 				break;
 
 			// Case 8: Kedah Region
 			case 8:
 				cout << "Location: Kedah\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Cardiac Surgery\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Neurosurgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Orthopedic Surgery\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: General Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n";
-				else
-					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Emergency Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Cardiac Surgery\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Cardiology & Heart Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Neurosurgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Neurosurgery & Spine Centre\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Orthopedic Surgery\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Orthopedic & Trauma Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: General Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: General & Minimally Invasive Surgery\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Emergency Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: 24/7 Emergency Care\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n";
+				}
 				break;
 
 			// Case 9: Kelantan Region
 			case 9:
 				cout << "Location: Kelantan\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Cardiac Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Orthopedic Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: General Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n";
-				else
-					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Emergency & Trauma\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Cardiac Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Neurosurgery & Spine Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Orthopedic Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: General Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: General & Advanced Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Emergency & Trauma\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: 24/7 Emergency Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n";
+				}
 				break;
 
 			// Case 10: Terengganu Region
 			case 10:
 				cout << "Location: Terengganu\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Neurosurgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: General Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n";
-				else
-					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Emergency Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Neurosurgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: General Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Emergency Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: 24/7 Emergency Care\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n";
+				}
 				break;
 
 			// Case 11: Perlis Region
 			case 11:
 				cout << "Location: Perlis\n";
-				if (surgeryType == 1)
+				cout << "Note: Perlis has limited specialist hospitals. Main referral hospital listed.\n\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
 					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Cardiac Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
-				else if (surgeryType == 2)
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
 					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Neurosurgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
-				else if (surgeryType == 3)
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
 					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Orthopedic Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
-				else if (surgeryType == 4)
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
 					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: General Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
-				else
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
 					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Emergency Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
+				}
 				break;
 
 			// Case 12: Sabah Region
 			case 12:
 				cout << "Location: Sabah\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Cardiovascular Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Neurosurgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Orthopedic Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: General Surgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n";
-				else
-					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Emergency & Trauma\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Cardiovascular Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Cardiac Surgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Neurosurgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Brain & Spine Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Orthopedic Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: General Surgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: General & Minimally Invasive Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Emergency & Trauma\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: 24/7 Emergency Care\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n";
+				}
 				break;
 
 			// Case 13: Sarawak Region
 			case 13:
 				cout << "Location: Sarawak\n";
-				if (surgeryType == 1)
-					cout << "Hospital: Sarawak Heart Centre\nSpecialty: Advanced Cardiac Care\nArea: Kota Samarahan, Near UNIMAS\nContact: +6082-833 333\n";
-				else if (surgeryType == 2)
-					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Kuching City Centre\nContact: +6082-276 666\n";
-				else if (surgeryType == 3)
-					cout << "Hospital: Borneo Medical Centre\nSpecialty: Bone & Joint Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n";
-				else if (surgeryType == 4)
-					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: General Surgery\nArea: Jalan Hospital, Kuching City Centre\nContact: +6082-276 666\n";
-				else
-					cout << "Hospital: KPJ Kuching Specialist Hospital\nSpecialty: Trauma & Emergency Surgery\nArea: Jalan Tun Jugah, Kuching Town\nContact: +6082-365 777\n";
+				if (surgeryType == 1) {
+					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Sarawak Heart Centre\nSpecialty: Advanced Cardiac Care\nArea: Kota Samarahan, Near UNIMAS\nContact: +6082-833 333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Cardiovascular Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Borneo Medical Centre\nSpecialty: Cardiac Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n";
+				}
+				else if (surgeryType == 2) {
+					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Kuching City Centre\nContact: +6082-276 666\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Neurosurgery & Spine Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Borneo Medical Centre\nSpecialty: Brain & Spine Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n";
+				}
+				else if (surgeryType == 3) {
+					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Borneo Medical Centre\nSpecialty: Bone & Joint Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: KPJ Kuching Specialist Hospital\nSpecialty: Orthopedic & Joint Replacement\nArea: Jalan Tun Jugah, Kuching Town\nContact: +6082-365 777\n";
+				}
+				else if (surgeryType == 4) {
+					cout << "Surgery Type: General Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: General Surgery\nArea: Jalan Hospital, Kuching City Centre\nContact: +6082-276 666\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Borneo Medical Centre\nSpecialty: General Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n";
+				}
+				else {
+					cout << "Surgery Type: Emergency Surgery\n\n";
+					cout << "Option 1:\n";
+					cout << "Hospital: KPJ Kuching Specialist Hospital\nSpecialty: Trauma & Emergency Surgery\nArea: Jalan Tun Jugah, Kuching Town\nContact: +6082-365 777\n\n";
+					cout << "Option 2:\n";
+					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: 24/7 Emergency & Trauma\nArea: Jalan Hospital, Kuching City Centre\nContact: +6082-276 666\n\n";
+					cout << "Option 3:\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Emergency Care\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n";
+				}
 				break;
 		}
 
