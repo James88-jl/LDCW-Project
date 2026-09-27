@@ -18,7 +18,8 @@ A C++ console application that helps users find suitable hospitals for major sur
   - Orthopedic Surgery (Bones & Joints)
   - General Surgery
   - Emergency Surgery
-- **65 Hospital Recommendations:** Real Malaysian hospitals
+- **140 Hospital Recommendations:** 2-3 options per search for better choices
+- **Real Malaysian Hospitals:** Verified government and private hospitals
 - **Complete Contact Information:** Phone numbers for all hospitals
 - **Location Details:** Area/street information to help locate hospitals
 - **User-Friendly Interface:** Menu-driven selection system
@@ -48,7 +49,7 @@ A C++ console application that helps users find suitable hospitals for major sur
 Hospital Finder
 ├── Location Selection (13 states)
 ├── Surgery Type Selection (5 types)
-├── Hospital Recommendation
+├── Multiple Hospital Recommendations (2-3 options)
 │   ├── Hospital Name
 │   ├── Specialty
 │   ├── Area/Location
@@ -97,12 +98,27 @@ Select surgery type needed:
 ...
 Enter your choice: 1
 
-=== RECOMMENDED HOSPITAL ===
+=== RECOMMENDED HOSPITALS ===
 Location: Kuala Lumpur & Selangor
+Surgery Type: Cardiac Surgery (Heart)
+
+Option 1:
 Hospital: Institut Jantung Negara (IJN)
 Specialty: Advanced Cardiac Surgery
 Area: Jalan Tun Razak, KL City Centre
 Contact: +603-2617 8200
+
+Option 2:
+Hospital: Gleneagles Hospital Kuala Lumpur
+Specialty: Cardiac & Heart Surgery
+Area: Jalan Ampang, KLCC Area
+Contact: +603-4141 3000
+
+Option 3:
+Hospital: Prince Court Medical Centre
+Specialty: Cardiovascular Surgery
+Area: Jalan Kia Peng, Near KLCC
+Contact: +603-2160 0000
 
 Would you like to search for another hospital? (Y/N): N
 
@@ -112,13 +128,18 @@ Stay healthy and take care!
 
 ## 📊 Sample Hospitals Included
 
-### Major Hospitals
+### Major Hospital Networks
 - **Institut Jantung Negara (IJN)** - Premier heart hospital
-- **Hospital Kuala Lumpur (HKL)** - Major government hospital
-- **Gleneagles Hospitals** - Premium private healthcare
+- **Gleneagles Hospitals** - Premium private healthcare (KL, Penang, Johor, Sabah)
 - **KPJ Specialist Hospitals** - Nationwide specialist network
-- **Mahkota Medical Centre** - Melaka's leading hospital
-- And many more...
+- **Hospital Kuala Lumpur (HKL)** - Major government hospital
+- **Prince Court Medical Centre** - International medical center
+- **Sunway Medical Centre** - Leading private hospital
+- **Island Hospital Penang** - Award-winning private hospital
+- **Mahkota Medical Centre** - Melaka's premier hospital
+- **Borneo Medical Centre** - Leading hospital in East Malaysia
+- **Normah Medical Specialist Centre** - Sarawak's top private hospital
+- And many more government and private hospitals across Malaysia!
 
 ## 🛠️ Technical Details
 
@@ -153,6 +174,7 @@ git log --oneline --graph
 6. Implementation of search again loop
 7. Integration of complete contact information
 8. Addition of area/location descriptions for all hospitals
+9. **Major upgrade: Multiple hospital options (2-3 per category) for better user choice**
 
 ## 📦 Repository Structure
 
