@@ -20,6 +20,9 @@ A C++ console application that helps users find suitable hospitals for major sur
   - Emergency Surgery
 - **140 Hospital Recommendations:** 2-3 options per search for better choices
 - **Real Malaysian Hospitals:** Verified government and private hospitals
+- **Smart Location Detection:** Auto-detect area from postcode or city name
+- **Distance Information:** Estimated distances from city centers (55+ hospitals)
+- **Google Maps Integration:** Auto-directions to hospitals with one click
 - **Complete Contact Information:** Phone numbers for all hospitals
 - **Location Details:** Area/street information to help locate hospitals
 - **User-Friendly Interface:** Menu-driven selection system
@@ -88,10 +91,13 @@ g++ project.cpp -o hospital_finder
 === Hospital Finder - Surgery Specialist Locator ===
 === Malaysia ===
 
-Select your state/region:
-1. Kuala Lumpur & Selangor
-...
-Enter your choice: 1
+How would you like to find hospitals?
+A. Auto-detect my location (enter postcode/city)
+B. Manually select my state
+Enter your choice (A/B): A
+
+Enter your postcode or city name: 50450
+Area detected: Kuala Lumpur & Selangor
 
 Select surgery type needed:
 1. Cardiac Surgery (Heart)
@@ -106,19 +112,29 @@ Option 1:
 Hospital: Institut Jantung Negara (IJN)
 Specialty: Advanced Cardiac Surgery
 Area: Jalan Tun Razak, KL City Centre
+Distance: ~3 km from KLCC
 Contact: +603-2617 8200
 
 Option 2:
 Hospital: Gleneagles Hospital Kuala Lumpur
 Specialty: Cardiac & Heart Surgery
 Area: Jalan Ampang, KLCC Area
+Distance: ~1 km from KLCC
 Contact: +603-4141 3000
 
 Option 3:
 Hospital: Prince Court Medical Centre
 Specialty: Cardiovascular Surgery
 Area: Jalan Kia Peng, Near KLCC
+Distance: ~1.5 km from KLCC
 Contact: +603-2160 0000
+
+========================================
+View hospital location on Google Maps?
+1 = Option 1 | 2 = Option 2 | 3 = Option 3 | N = Skip
+Enter your choice: 1
+Opening Google Maps in your browser...
+Note: Google Maps will show you the distance from your location.
 
 Would you like to search for another hospital? (Y/N): N
 
@@ -175,6 +191,9 @@ git log --oneline --graph
 7. Integration of complete contact information
 8. Addition of area/location descriptions for all hospitals
 9. **Major upgrade: Multiple hospital options (2-3 per category) for better user choice**
+10. **Google Maps integration with auto-directions**
+11. **Smart location detection from postcode/city**
+12. **Distance information for recommended hospitals**
 
 ## 📦 Repository Structure
 
