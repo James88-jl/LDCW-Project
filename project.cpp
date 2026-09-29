@@ -30,17 +30,22 @@ int main() {
 		cout << "=== Malaysia ===\n";
 		
 		// Section 1: Auto-detect location or manual selection
-		cout << "\nHow would you like to find hospitals?\n";
-		cout << "A. Auto-detect my location (enter postcode/city)\n";
-		cout << "B. Manually select my state\n";
-		cout << "Enter your choice (A/B): ";
-		cin >> locationChoice;
-		
-		// Validate input
-		if (locationChoice != 'A' && locationChoice != 'a' && 
-		    locationChoice != 'B' && locationChoice != 'b') {
-			cout << "Invalid choice. Please enter A or B.\n";
-			continue;
+		// Keep asking until valid input (A or B) is entered
+		bool validChoice = false;
+		while (!validChoice) {
+			cout << "\nHow would you like to find hospitals?\n";
+			cout << "A. Auto-detect my location (enter postcode/city)\n";
+			cout << "B. Manually select my state\n";
+			cout << "Enter your choice (A/B): ";
+			cin >> locationChoice;
+			
+			// Validate input
+			if (locationChoice == 'A' || locationChoice == 'a' || 
+			    locationChoice == 'B' || locationChoice == 'b') {
+				validChoice = true;
+			} else {
+				cout << "Invalid choice. Please enter A or B.\n\n";
+			}
 		}
 		
 		if (locationChoice == 'A' || locationChoice == 'a') {
@@ -158,44 +163,52 @@ int main() {
 		
 		// Manual selection if auto-detect failed or user chose manual
 		if (!autoDetected || locationChoice == 'B' || locationChoice == 'b') {
-			cout << "\nSelect your state/region:\n";
-			cout << "1. Kuala Lumpur & Selangor\n";
-			cout << "2. Penang\n";
-			cout << "3. Johor\n";
-			cout << "4. Perak\n";
-			cout << "5. Melaka\n";
-			cout << "6. Negeri Sembilan\n";
-			cout << "7. Pahang\n";
-			cout << "8. Kedah\n";
-			cout << "9. Kelantan\n";
-			cout << "10. Terengganu\n";
-			cout << "11. Perlis\n";
-			cout << "12. Sabah\n";
-			cout << "13. Sarawak\n";
-			cout << "Enter your choice: ";
-			cin >> location;
+			bool validLocation = false;
+			while (!validLocation) {
+				cout << "\nSelect your state/region:\n";
+				cout << "1. Kuala Lumpur & Selangor\n";
+				cout << "2. Penang\n";
+				cout << "3. Johor\n";
+				cout << "4. Perak\n";
+				cout << "5. Melaka\n";
+				cout << "6. Negeri Sembilan\n";
+				cout << "7. Pahang\n";
+				cout << "8. Kedah\n";
+				cout << "9. Kelantan\n";
+				cout << "10. Terengganu\n";
+				cout << "11. Perlis\n";
+				cout << "12. Sabah\n";
+				cout << "13. Sarawak\n";
+				cout << "Enter your choice: ";
+				cin >> location;
 
-			// Validate location input
-			if (location < 1 || location > 13) {
-				cout << "Invalid location. Please choose 1-13.\n";
-				continue;
+				// Validate location input
+				if (location >= 1 && location <= 13) {
+					validLocation = true;
+				} else {
+					cout << "Invalid location. Please choose 1-13.\n\n";
+				}
 			}
 		}
 		
 		// Section 2: Get surgery type needed
-		cout << "\nSelect surgery type needed:\n";
-		cout << "1. Cardiac Surgery (Heart)\n";
-		cout << "2. Neurosurgery (Brain & Spine)\n";
-		cout << "3. Orthopedic Surgery (Bones & Joints)\n";
-		cout << "4. General Surgery\n";
-		cout << "5. Emergency Surgery\n";
-		cout << "Enter your choice: ";
-		cin >> surgeryType;
+		bool validSurgery = false;
+		while (!validSurgery) {
+			cout << "\nSelect surgery type needed:\n";
+			cout << "1. Cardiac Surgery (Heart)\n";
+			cout << "2. Neurosurgery (Brain & Spine)\n";
+			cout << "3. Orthopedic Surgery (Bones & Joints)\n";
+			cout << "4. General Surgery\n";
+			cout << "5. Emergency Surgery\n";
+			cout << "Enter your choice: ";
+			cin >> surgeryType;
 
-		// Validate surgery type input
-		if (surgeryType < 1 || surgeryType > 5) {
-			cout << "Invalid surgery type. Please choose 1-5.\n";
-			continue;
+			// Validate surgery type input
+			if (surgeryType >= 1 && surgeryType <= 5) {
+				validSurgery = true;
+			} else {
+				cout << "Invalid surgery type. Please choose 1-5.\n\n";
+			}
 		}
 
 		// Section 3: Display recommended hospitals based on location and surgery type
@@ -492,51 +505,51 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Cardiac Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Cardiac Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nDistance: ~1 km from Melaka Town Square\nContact: +606-285 2999\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Mahkota+Medical+Centre+Melaka";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Melaka\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nDistance: ~2 km from Melaka Town Square\nContact: +606-289 2345\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Melaka";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Melaka\nSpecialty: Neurosurgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: Neurosurgery\nArea: Jalan Mufti Haji Khalil, City Centre\nDistance: ~2 km from Melaka Town Square\nContact: +606-289 2345\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Melaka";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Merdeka, Melaka Town Centre\nDistance: ~1 km from Melaka Town Square\nContact: +606-285 2999\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Mahkota+Medical+Centre+Melaka";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nDistance: ~1 km from Melaka Town Square\nContact: +606-285 2999\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Mahkota+Medical+Centre+Melaka";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Melaka\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nDistance: ~2 km from Melaka Town Square\nContact: +606-289 2345\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Melaka";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Melaka\nSpecialty: General Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: General Surgery\nArea: Jalan Mufti Haji Khalil, City Centre\nDistance: ~2 km from Melaka Town Square\nContact: +606-289 2345\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Melaka";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Mahkota Medical Centre\nSpecialty: General & Minimally Invasive Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: General & Minimally Invasive Surgery\nArea: Jalan Merdeka, Melaka Town Centre\nDistance: ~1 km from Melaka Town Square\nContact: +606-285 2999\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Mahkota+Medical+Centre+Melaka";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Emergency Care\nArea: Jalan Merdeka, Melaka Town Centre\nContact: +606-285 2999\n\n";
+					cout << "Hospital: Mahkota Medical Centre\nSpecialty: Emergency Care\nArea: Jalan Merdeka, Melaka Town Centre\nDistance: ~1 km from Melaka Town Square\nContact: +606-285 2999\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Mahkota+Medical+Centre+Melaka";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Melaka\nSpecialty: 24/7 Emergency & Trauma\nArea: Jalan Mufti Haji Khalil, City Centre\nContact: +606-289 2345\n";
+					cout << "Hospital: Hospital Melaka\nSpecialty: 24/7 Emergency & Trauma\nArea: Jalan Mufti Haji Khalil, City Centre\nDistance: ~2 km from Melaka Town Square\nContact: +606-289 2345\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Melaka";
 				}
 				break;
@@ -547,71 +560,71 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Cardiac Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Cardiac Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nDistance: ~3 km from Seremban City Centre\nContact: +606-603 3988\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Columbia+Asia+Hospital+Seremban";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Cardiovascular Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Cardiovascular Surgery\nArea: Jalan Toman, Seremban Centre\nDistance: ~2 km from Seremban City Centre\nContact: +606-768 6000\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Seremban+Specialist+Hospital";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Cardiac Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Cardiac Surgery\nArea: Jalan Rasah, Seremban Town\nDistance: ~4 km from Seremban City Centre\nContact: +606-768 4000\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Jaafar+Seremban";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tuanku Ja'afar Seremban\nSpecialty: Neurosurgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar Seremban\nSpecialty: Neurosurgery\nArea: Jalan Rasah, Seremban Town\nDistance: ~4 km from Seremban City Centre\nContact: +606-768 4000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Jaafar+Seremban";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Brain & Spine Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Brain & Spine Surgery\nArea: Jalan Toman, Seremban Centre\nDistance: ~2 km from Seremban City Centre\nContact: +606-768 6000\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Seremban+Specialist+Hospital";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Neurosurgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Neurosurgery\nArea: Jalan Penghulu Cantik, Seremban 2\nDistance: ~3 km from Seremban City Centre\nContact: +606-603 3988\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=Columbia+Asia+Hospital+Seremban";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Toman, Seremban Centre\nDistance: ~2 km from Seremban City Centre\nContact: +606-768 6000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Seremban+Specialist+Hospital";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Orthopedic & Joint Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: Orthopedic & Joint Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nDistance: ~3 km from Seremban City Centre\nContact: +606-603 3988\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Columbia+Asia+Hospital+Seremban";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Orthopedic Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Orthopedic Surgery\nArea: Jalan Rasah, Seremban Town\nDistance: ~4 km from Seremban City Centre\nContact: +606-768 4000\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Jaafar+Seremban";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: General Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: General Surgery\nArea: Jalan Rasah, Seremban Town\nDistance: ~4 km from Seremban City Centre\nContact: +606-768 4000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Jaafar+Seremban";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Penghulu Cantik, Seremban 2\nDistance: ~3 km from Seremban City Centre\nContact: +606-603 3988\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Columbia+Asia+Hospital+Seremban";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: General Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: General Surgery\nArea: Jalan Toman, Seremban Centre\nDistance: ~2 km from Seremban City Centre\nContact: +606-768 6000\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Seremban+Specialist+Hospital";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Emergency Surgery\nArea: Jalan Rasah, Seremban Town\nContact: +606-768 4000\n\n";
+					cout << "Hospital: Hospital Tuanku Ja'afar\nSpecialty: Emergency Surgery\nArea: Jalan Rasah, Seremban Town\nDistance: ~4 km from Seremban City Centre\nContact: +606-768 4000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Jaafar+Seremban";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: 24/7 Emergency Care\nArea: Jalan Penghulu Cantik, Seremban 2\nContact: +606-603 3988\n\n";
+					cout << "Hospital: Columbia Asia Hospital Seremban\nSpecialty: 24/7 Emergency Care\nArea: Jalan Penghulu Cantik, Seremban 2\nDistance: ~3 km from Seremban City Centre\nContact: +606-603 3988\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Columbia+Asia+Hospital+Seremban";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Emergency Surgery\nArea: Jalan Toman, Seremban Centre\nContact: +606-768 6000\n";
+					cout << "Hospital: KPJ Seremban Specialist Hospital\nSpecialty: Emergency Surgery\nArea: Jalan Toman, Seremban Centre\nDistance: ~2 km from Seremban City Centre\nContact: +606-768 6000\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Seremban+Specialist+Hospital";
 				}
 				break;
@@ -622,51 +635,51 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nDistance: ~5 km from Kuantan City Centre\nContact: +609-511 2692\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Pahang+Specialist+Hospital+Kuantan";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nDistance: ~3 km from Kuantan City Centre\nContact: +609-513 3333\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tengku+Ampuan+Afzan+Kuantan";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Neurosurgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Neurosurgery\nArea: Jalan Tanah Putih, Kuantan Town\nDistance: ~3 km from Kuantan City Centre\nContact: +609-513 3333\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tengku+Ampuan+Afzan+Kuantan";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Tanjung Lumpur, Kuantan\nDistance: ~5 km from Kuantan City Centre\nContact: +609-511 2692\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Pahang+Specialist+Hospital+Kuantan";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nDistance: ~5 km from Kuantan City Centre\nContact: +609-511 2692\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Pahang+Specialist+Hospital+Kuantan";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nDistance: ~3 km from Kuantan City Centre\nContact: +609-513 3333\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tengku+Ampuan+Afzan+Kuantan";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: General Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: General Surgery\nArea: Jalan Tanah Putih, Kuantan Town\nDistance: ~3 km from Kuantan City Centre\nContact: +609-513 3333\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tengku+Ampuan+Afzan+Kuantan";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Tanjung Lumpur, Kuantan\nDistance: ~5 km from Kuantan City Centre\nContact: +609-511 2692\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Pahang+Specialist+Hospital+Kuantan";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Emergency & Trauma\nArea: Jalan Tanah Putih, Kuantan Town\nContact: +609-513 3333\n\n";
+					cout << "Hospital: Hospital Tengku Ampuan Afzan\nSpecialty: Emergency & Trauma\nArea: Jalan Tanah Putih, Kuantan Town\nDistance: ~3 km from Kuantan City Centre\nContact: +609-513 3333\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tengku+Ampuan+Afzan+Kuantan";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: 24/7 Emergency Care\nArea: Jalan Tanjung Lumpur, Kuantan\nContact: +609-511 2692\n";
+					cout << "Hospital: KPJ Pahang Specialist Hospital\nSpecialty: 24/7 Emergency Care\nArea: Jalan Tanjung Lumpur, Kuantan\nDistance: ~5 km from Kuantan City Centre\nContact: +609-511 2692\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Pahang+Specialist+Hospital+Kuantan";
 				}
 				break;
@@ -677,51 +690,51 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Cardiac Surgery\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Cardiac Surgery\nArea: Bandar Baru Mergong, Alor Setar\nDistance: ~3 km from Alor Setar City Centre\nContact: +604-740 6100\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Aurelius+Hospital+Alor+Setar";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Cardiology & Heart Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Cardiology & Heart Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nDistance: ~6 km from Alor Setar City Centre\nContact: +604-740 6233\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Bahiyah+Alor+Setar";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Neurosurgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Neurosurgery\nArea: Km6 Jalan Langgar, Alor Setar\nDistance: ~6 km from Alor Setar City Centre\nContact: +604-740 6233\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Bahiyah+Alor+Setar";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Neurosurgery & Spine Centre\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Neurosurgery & Spine Centre\nArea: Bandar Baru Mergong, Alor Setar\nDistance: ~3 km from Alor Setar City Centre\nContact: +604-740 6100\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Aurelius+Hospital+Alor+Setar";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Orthopedic Surgery\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: Orthopedic Surgery\nArea: Bandar Baru Mergong, Alor Setar\nDistance: ~3 km from Alor Setar City Centre\nContact: +604-740 6100\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Aurelius+Hospital+Alor+Setar";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Orthopedic & Trauma Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Orthopedic & Trauma Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nDistance: ~6 km from Alor Setar City Centre\nContact: +604-740 6233\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Bahiyah+Alor+Setar";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: General Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: General Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nDistance: ~6 km from Alor Setar City Centre\nContact: +604-740 6233\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Bahiyah+Alor+Setar";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: General & Minimally Invasive Surgery\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: General & Minimally Invasive Surgery\nArea: Bandar Baru Mergong, Alor Setar\nDistance: ~3 km from Alor Setar City Centre\nContact: +604-740 6100\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Aurelius+Hospital+Alor+Setar";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Emergency Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nContact: +604-740 6233\n\n";
+					cout << "Hospital: Hospital Sultanah Bahiyah\nSpecialty: Emergency Surgery\nArea: Km6 Jalan Langgar, Alor Setar\nDistance: ~6 km from Alor Setar City Centre\nContact: +604-740 6233\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Bahiyah+Alor+Setar";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: 24/7 Emergency Care\nArea: Bandar Baru Mergong, Alor Setar\nContact: +604-740 6100\n";
+					cout << "Hospital: Aurelius Hospital Alor Setar\nSpecialty: 24/7 Emergency Care\nArea: Bandar Baru Mergong, Alor Setar\nDistance: ~3 km from Alor Setar City Centre\nContact: +604-740 6100\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Aurelius+Hospital+Alor+Setar";
 				}
 				break;
@@ -732,51 +745,51 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Cardiac Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Cardiac Surgery\nArea: Kubang Kerian, Near USM Campus\nDistance: ~12 km from Kota Bharu City Centre\nContact: +609-767 3000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Universiti+Sains+Malaysia+HUSM+Kelantan";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nDistance: ~2 km from Kota Bharu City Centre\nContact: +609-745 2000\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Raja+Perempuan+Zainab+II+Kota+Bharu";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Kota Bharu Centre\nDistance: ~2 km from Kota Bharu City Centre\nContact: +609-745 2000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Raja+Perempuan+Zainab+II+Kota+Bharu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Neurosurgery & Spine Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Neurosurgery & Spine Surgery\nArea: Kubang Kerian, Near USM Campus\nDistance: ~12 km from Kota Bharu City Centre\nContact: +609-767 3000\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Universiti+Sains+Malaysia+HUSM+Kelantan";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Orthopedic Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: Orthopedic Surgery\nArea: Kubang Kerian, Near USM Campus\nDistance: ~12 km from Kota Bharu City Centre\nContact: +609-767 3000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Universiti+Sains+Malaysia+HUSM+Kelantan";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nDistance: ~2 km from Kota Bharu City Centre\nContact: +609-745 2000\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Raja+Perempuan+Zainab+II+Kota+Bharu";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: General Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: General Surgery\nArea: Jalan Hospital, Kota Bharu Centre\nDistance: ~2 km from Kota Bharu City Centre\nContact: +609-745 2000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Raja+Perempuan+Zainab+II+Kota+Bharu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: General & Advanced Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: General & Advanced Surgery\nArea: Kubang Kerian, Near USM Campus\nDistance: ~12 km from Kota Bharu City Centre\nContact: +609-767 3000\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Universiti+Sains+Malaysia+HUSM+Kelantan";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Emergency & Trauma\nArea: Jalan Hospital, Kota Bharu Centre\nContact: +609-745 2000\n\n";
+					cout << "Hospital: Hospital Raja Perempuan Zainab II\nSpecialty: Emergency & Trauma\nArea: Jalan Hospital, Kota Bharu Centre\nDistance: ~2 km from Kota Bharu City Centre\nContact: +609-745 2000\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Raja+Perempuan+Zainab+II+Kota+Bharu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: 24/7 Emergency Surgery\nArea: Kubang Kerian, Near USM Campus\nContact: +609-767 3000\n";
+					cout << "Hospital: Hospital Universiti Sains Malaysia (HUSM)\nSpecialty: 24/7 Emergency Surgery\nArea: Kubang Kerian, Near USM Campus\nDistance: ~12 km from Kota Bharu City Centre\nContact: +609-767 3000\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Universiti+Sains+Malaysia+HUSM+Kelantan";
 				}
 				break;
@@ -787,51 +800,51 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Cardiac Surgery\nArea: Jalan Air Jernih, KT Town Centre\nDistance: ~2 km from Kuala Terengganu City Centre\nContact: +609-624 3333\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Kuala+Terengganu+Specialist+Hospital";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Cardiology & Heart Surgery\nArea: Jalan Sultan Mahmud, KT City\nDistance: ~3 km from Kuala Terengganu City Centre\nContact: +609-621 2121\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Nur+Zahirah+Kuala+Terengganu";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Neurosurgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Neurosurgery\nArea: Jalan Sultan Mahmud, KT City\nDistance: ~3 km from Kuala Terengganu City Centre\nContact: +609-621 2121\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Nur+Zahirah+Kuala+Terengganu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Neurology & Neurosurgery\nArea: Jalan Air Jernih, KT Town Centre\nDistance: ~2 km from Kuala Terengganu City Centre\nContact: +609-624 3333\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Kuala+Terengganu+Specialist+Hospital";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: Orthopedic Surgery\nArea: Jalan Air Jernih, KT Town Centre\nDistance: ~2 km from Kuala Terengganu City Centre\nContact: +609-624 3333\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Kuala+Terengganu+Specialist+Hospital";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Sultan Mahmud, KT City\nDistance: ~3 km from Kuala Terengganu City Centre\nContact: +609-621 2121\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Nur+Zahirah+Kuala+Terengganu";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: General Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: General Surgery\nArea: Jalan Sultan Mahmud, KT City\nDistance: ~3 km from Kuala Terengganu City Centre\nContact: +609-621 2121\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Nur+Zahirah+Kuala+Terengganu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Air Jernih, KT Town Centre\nDistance: ~2 km from Kuala Terengganu City Centre\nContact: +609-624 3333\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Kuala+Terengganu+Specialist+Hospital";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Emergency Surgery\nArea: Jalan Sultan Mahmud, KT City\nContact: +609-621 2121\n\n";
+					cout << "Hospital: Hospital Sultanah Nur Zahirah\nSpecialty: Emergency Surgery\nArea: Jalan Sultan Mahmud, KT City\nDistance: ~3 km from Kuala Terengganu City Centre\nContact: +609-621 2121\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Sultanah+Nur+Zahirah+Kuala+Terengganu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: 24/7 Emergency Care\nArea: Jalan Air Jernih, KT Town Centre\nContact: +609-624 3333\n";
+					cout << "Hospital: Kuala Terengganu Specialist Hospital\nSpecialty: 24/7 Emergency Care\nArea: Jalan Air Jernih, KT Town Centre\nDistance: ~2 km from Kuala Terengganu City Centre\nContact: +609-624 3333\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Kuala+Terengganu+Specialist+Hospital";
 				}
 				break;
@@ -843,31 +856,31 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Cardiac Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
+					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Cardiac Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nDistance: ~2 km from Kangar City Centre\nContact: +604-973 8333\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Fauziah+Kangar+Perlis";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Neurosurgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
+					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Neurosurgery\nArea: Jalan Tun Abd Razak, Kangar Town\nDistance: ~2 km from Kangar City Centre\nContact: +604-973 8333\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Fauziah+Kangar+Perlis";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Orthopedic Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
+					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Orthopedic Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nDistance: ~2 km from Kangar City Centre\nContact: +604-973 8333\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Fauziah+Kangar+Perlis";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: General Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
+					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: General Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nDistance: ~2 km from Kangar City Centre\nContact: +604-973 8333\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Fauziah+Kangar+Perlis";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Emergency Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nContact: +604-973 8333\n";
+					cout << "Hospital: Hospital Tuanku Fauziah\nSpecialty: Emergency Surgery\nArea: Jalan Tun Abd Razak, Kangar Town\nDistance: ~2 km from Kangar City Centre\nContact: +604-973 8333\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Tuanku+Fauziah+Kangar+Perlis";
 				}
 				break;
@@ -878,51 +891,51 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Cardiovascular Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Cardiovascular Surgery\nArea: Riverson, Near Imago Mall\nDistance: ~3 km from KK City Centre\nContact: +6088-518 888\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Gleneagles+Hospital+Kota+Kinabalu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Cardiac Surgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Cardiac Surgery\nArea: Jalan Penampang, KK City Centre\nDistance: ~2 km from KK City Centre\nContact: +6088-517 555\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Queen+Elizabeth+Kota+Kinabalu";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Neurosurgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Neurosurgery\nArea: Jalan Penampang, KK City Centre\nDistance: ~2 km from KK City Centre\nContact: +6088-517 555\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Queen+Elizabeth+Kota+Kinabalu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Brain & Spine Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Brain & Spine Surgery\nArea: Riverson, Near Imago Mall\nDistance: ~3 km from KK City Centre\nContact: +6088-518 888\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Gleneagles+Hospital+Kota+Kinabalu";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Orthopedic Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: Orthopedic Surgery\nArea: Riverson, Near Imago Mall\nDistance: ~3 km from KK City Centre\nContact: +6088-518 888\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Gleneagles+Hospital+Kota+Kinabalu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Orthopedic & Trauma Surgery\nArea: Jalan Penampang, KK City Centre\nDistance: ~2 km from KK City Centre\nContact: +6088-517 555\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Queen+Elizabeth+Kota+Kinabalu";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: General Surgery\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: General Surgery\nArea: Jalan Penampang, KK City Centre\nDistance: ~2 km from KK City Centre\nContact: +6088-517 555\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Queen+Elizabeth+Kota+Kinabalu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: General & Minimally Invasive Surgery\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: General & Minimally Invasive Surgery\nArea: Riverson, Near Imago Mall\nDistance: ~3 km from KK City Centre\nContact: +6088-518 888\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Gleneagles+Hospital+Kota+Kinabalu";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Emergency & Trauma\nArea: Jalan Penampang, KK City Centre\nContact: +6088-517 555\n\n";
+					cout << "Hospital: Hospital Queen Elizabeth\nSpecialty: Emergency & Trauma\nArea: Jalan Penampang, KK City Centre\nDistance: ~2 km from KK City Centre\nContact: +6088-517 555\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Queen+Elizabeth+Kota+Kinabalu";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: 24/7 Emergency Care\nArea: Riverson, Near Imago Mall\nContact: +6088-518 888\n";
+					cout << "Hospital: Gleneagles Hospital Kota Kinabalu\nSpecialty: 24/7 Emergency Care\nArea: Riverson, Near Imago Mall\nDistance: ~3 km from KK City Centre\nContact: +6088-518 888\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Gleneagles+Hospital+Kota+Kinabalu";
 				}
 				break;
@@ -933,71 +946,71 @@ int main() {
 				if (surgeryType == 1) {
 					cout << "Surgery Type: Cardiac Surgery (Heart)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Sarawak Heart Centre\nSpecialty: Advanced Cardiac Care\nArea: Kota Samarahan, Near UNIMAS\nContact: +6082-833 333\n\n";
+					cout << "Hospital: Sarawak Heart Centre\nSpecialty: Advanced Cardiac Care\nArea: Kota Samarahan, Near UNIMAS\nDistance: ~20 km from Kuching City Centre\nContact: +6082-833 333\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Sarawak+Heart+Centre+Kota+Samarahan";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Cardiovascular Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Cardiovascular Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nDistance: ~3 km from Kuching City Centre\nContact: +6082-440 055\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Normah+Medical+Specialist+Centre+Kuching";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: Borneo Medical Centre\nSpecialty: Cardiac Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n";
+					cout << "Hospital: Borneo Medical Centre\nSpecialty: Cardiac Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nDistance: ~2 km from Kuching City Centre\nContact: +6082-507 333\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=Borneo+Medical+Centre+Kuching";
 				}
 				else if (surgeryType == 2) {
 					cout << "Surgery Type: Neurosurgery (Brain & Spine)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Kuching City Centre\nContact: +6082-276 666\n\n";
+					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: Neurosurgery\nArea: Jalan Hospital, Kuching City Centre\nDistance: ~1 km from Kuching City Centre\nContact: +6082-276 666\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Umum+Sarawak+Kuching";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Neurosurgery & Spine Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Neurosurgery & Spine Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nDistance: ~3 km from Kuching City Centre\nContact: +6082-440 055\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Normah+Medical+Specialist+Centre+Kuching";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: Borneo Medical Centre\nSpecialty: Brain & Spine Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n";
+					cout << "Hospital: Borneo Medical Centre\nSpecialty: Brain & Spine Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nDistance: ~2 km from Kuching City Centre\nContact: +6082-507 333\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=Borneo+Medical+Centre+Kuching";
 				}
 				else if (surgeryType == 3) {
 					cout << "Surgery Type: Orthopedic Surgery (Bones & Joints)\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Borneo Medical Centre\nSpecialty: Bone & Joint Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n\n";
+					cout << "Hospital: Borneo Medical Centre\nSpecialty: Bone & Joint Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nDistance: ~2 km from Kuching City Centre\nContact: +6082-507 333\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Borneo+Medical+Centre+Kuching";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Orthopedic Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nDistance: ~3 km from Kuching City Centre\nContact: +6082-440 055\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Normah+Medical+Specialist+Centre+Kuching";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: KPJ Kuching Specialist Hospital\nSpecialty: Orthopedic & Joint Replacement\nArea: Jalan Tun Jugah, Kuching Town\nContact: +6082-365 777\n";
+					cout << "Hospital: KPJ Kuching Specialist Hospital\nSpecialty: Orthopedic & Joint Replacement\nArea: Jalan Tun Jugah, Kuching Town\nDistance: ~4 km from Kuching City Centre\nContact: +6082-365 777\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Kuching+Specialist+Hospital";
 				}
 				else if (surgeryType == 4) {
 					cout << "Surgery Type: General Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: General Surgery\nArea: Jalan Hospital, Kuching City Centre\nContact: +6082-276 666\n\n";
+					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: General Surgery\nArea: Jalan Hospital, Kuching City Centre\nDistance: ~1 km from Kuching City Centre\nContact: +6082-276 666\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Umum+Sarawak+Kuching";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: General & Laparoscopic Surgery\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nDistance: ~3 km from Kuching City Centre\nContact: +6082-440 055\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Normah+Medical+Specialist+Centre+Kuching";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: Borneo Medical Centre\nSpecialty: General Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nContact: +6082-507 333\n";
+					cout << "Hospital: Borneo Medical Centre\nSpecialty: General Surgery\nArea: Jalan Tun Ahmad Zaidi, Kuching\nDistance: ~2 km from Kuching City Centre\nContact: +6082-507 333\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=Borneo+Medical+Centre+Kuching";
 				}
 				else {
 					cout << "Surgery Type: Emergency Surgery\n\n";
 					cout << "Option 1:\n";
-					cout << "Hospital: KPJ Kuching Specialist Hospital\nSpecialty: Trauma & Emergency Surgery\nArea: Jalan Tun Jugah, Kuching Town\nContact: +6082-365 777\n\n";
+					cout << "Hospital: KPJ Kuching Specialist Hospital\nSpecialty: Trauma & Emergency Surgery\nArea: Jalan Tun Jugah, Kuching Town\nDistance: ~4 km from Kuching City Centre\nContact: +6082-365 777\n\n";
 					mapURL1 = "https://www.google.com/maps/dir/?api=1&destination=KPJ+Kuching+Specialist+Hospital";
 					
 					cout << "Option 2:\n";
-					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: 24/7 Emergency & Trauma\nArea: Jalan Hospital, Kuching City Centre\nContact: +6082-276 666\n\n";
+					cout << "Hospital: Hospital Umum Sarawak\nSpecialty: 24/7 Emergency & Trauma\nArea: Jalan Hospital, Kuching City Centre\nDistance: ~1 km from Kuching City Centre\nContact: +6082-276 666\n\n";
 					mapURL2 = "https://www.google.com/maps/dir/?api=1&destination=Hospital+Umum+Sarawak+Kuching";
 					
 					cout << "Option 3:\n";
-					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Emergency Care\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nContact: +6082-440 055\n";
+					cout << "Hospital: Normah Medical Specialist Centre\nSpecialty: Emergency Care\nArea: Jalan Tun Abdul Rahman Yakub, Kuching\nDistance: ~3 km from Kuching City Centre\nContact: +6082-440 055\n";
 					mapURL3 = "https://www.google.com/maps/dir/?api=1&destination=Normah+Medical+Specialist+Centre+Kuching";
 				}
 				break;

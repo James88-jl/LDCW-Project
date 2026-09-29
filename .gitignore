@@ -1,0 +1,33 @@
+# Compiled executables
+*.exe
+*.out
+*.app
+
+# Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# VS Code settings
+.vscode/
+
+# IDE files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build directories
+build/
+bin/
+obj/
